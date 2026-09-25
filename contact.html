@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071a3d">
+  <meta name="description" content="Contact the CDYLC / CLJSC 2028 camp team with your questions.">
+  <title>Contact Us | CDYLC 2028</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23071a3d'/%3E%3Cpath d='M32 8l4 10 8-4-2 10 10 2-8 7 7 7-11 1 2 11-10-6-10 6 2-11-11-1 7-7-8-7 10-2-2-10 8 4z' fill='%23ed3045'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+  <script src="contact.js" defer></script>
+</head>
+<body data-lang="en" data-title-en="Contact Us | CDYLC 2028" data-title-fr="Nous joindre | CLJSC 2028">
+  <a class="skip en" href="#main">Skip to main content</a><a class="skip fr" href="#main">Aller au contenu principal</a>
+  <div class="topbar"><span class="en">2028 camp information is coming soon</span><span class="fr">Les informations sur le camp 2028 arrivent bientôt</span></div>
+  <nav class="nav" aria-label="Main navigation" data-label-en="Main navigation" data-label-fr="Navigation principale">
+    <div class="wrap nav-inner">
+      <a class="wordmark" href="index.html" aria-label="CDYLC 2028 home" data-label-en="CDYLC 2028 home" data-label-fr="Accueil CLJSC 2028"><img class="header-logo" src="cdylc-cljsc-logo.png" alt="Canadian Deaf Youth Leadership Camp — Camp de Leadership des Jeunes Sourds du Canada" width="2048" height="683" decoding="async"></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="siteLinks"><span class="en">Menu</span><span class="fr">Menu</span></button>
+      <div class="links" id="siteLinks"><a href="index.html#experience"><span class="en">Experience</span><span class="fr">Expérience</span></a>
+<a href="faq.html"><span class="en">FAQ</span><span class="fr">FAQ</span></a>
+<a href="about.html"><span class="en">About Us</span><span class="fr">À propos</span></a>
+<a href="board.html"><span class="en">Board</span><span class="fr">Conseil</span></a>
+<a href="committee.html"><span class="en">Camp Committee</span><span class="fr">Comité du camp</span></a>
+<a href="index.html#apply"><span class="en">Apply</span><span class="fr">Postuler</span></a></div>
+      <button class="lang" id="langToggle" type="button" aria-label="Passer au français" hidden>FR</button>
+    </div>
+  </nav>
+  <main id="main">
+  <header class="page-hero contact-hero" id="top"><div class="wrap">
+    <div class="breadcrumb"><a href="index.html"><span class="en">Home</span><span class="fr">Accueil</span></a><span class="separator" aria-hidden="true">/</span><span class="en">Contact Us</span><span class="fr">Nous joindre</span></div>
+    <h1><span class="en">Contact us.</span><span class="fr">Nous joindre.</span></h1>
+    <p class="lead"><span class="en">Have a question about CDYLC 2028? Send the camp team a message.</span><span class="fr">Une question sur le CLJSC 2028? Envoie un message à l’équipe du camp.</span></p>
+  </div></header>
+  <section class="page-content"><div class="wrap contact-layout">
+    <div class="contact-form-card">
+      <div class="form-status" id="contactSuccess" role="status" tabindex="-1" hidden>
+        <h2><span class="en">Thank you for your message.</span><span class="fr">Merci pour ton message.</span></h2>
+        <p><span class="en">Your form submission is complete. You can follow up with the camp team by email if needed.</span><span class="fr">L’envoi du formulaire est terminé. Tu peux communiquer avec l’équipe du camp par courriel pour faire un suivi.</span></p>
+      </div>
+      <form id="contactForm" action="https://formsubmit.co/dycjsc@gmail.com" method="POST" accept-charset="UTF-8">
+        <p class="form-intro"><span class="en">All fields are required.</span><span class="fr">Tous les champs sont obligatoires.</span></p>
+        <div class="form-row">
+          <div class="form-field"><label for="contactName"><span class="en">Name</span><span class="fr">Nom</span></label><input id="contactName" name="name" type="text" autocomplete="name" maxlength="100" required></div>
+          <div class="form-field"><label for="contactEmail"><span class="en">Email address</span><span class="fr">Adresse courriel</span></label><input id="contactEmail" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required></div>
+        </div>
+        <div class="form-field"><label for="contactSubject"><span class="en">Subject</span><span class="fr">Objet</span></label><input id="contactSubject" name="subject" type="text" maxlength="150" required></div>
+        <div class="form-field"><label for="contactMessage"><span class="en">Message</span><span class="fr">Message</span></label><textarea id="contactMessage" name="message" rows="7" maxlength="5000" aria-describedby="messageHelp" required></textarea><p class="field-help" id="messageHelp"><span class="en">Up to 5,000 characters. Please leave out payment details, identification documents and medical records.</span><span class="fr">Maximum de 5 000 caractères. N’inclus pas de données de paiement, de pièces d’identité ni de dossiers médicaux.</span></p></div>
+        <div class="form-honeypot" aria-hidden="true"><label for="contactWebsite">Leave this field empty</label><input id="contactWebsite" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="_subject" value="CDYLC / CLJSC 2028 — Website contact">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://derek-nichols.github.io/cdylc-2028/contact.html?submitted=1">
+        <input type="hidden" name="_url" value="https://derek-nichols.github.io/cdylc-2028/contact.html">
+        <input type="hidden" id="contactLanguage" name="language" value="English / Français">
+        <p class="form-privacy"><span class="en">By sending this form, you agree that DYC/JSC may use your details to respond. FormSubmit processes and forwards your message to the camp inbox and may ask you to complete a spam check. Read our <a href="privacy.html">Privacy Policy</a>.</span><span class="fr">En envoyant ce formulaire, tu acceptes que DYC/JSC utilise tes renseignements pour répondre. FormSubmit traite et transmet ton message à la boîte courriel du camp et peut demander une vérification antipourriel. Consulte notre <a href="privacy.html">Politique de confidentialité</a>.</span></p>
+        <button class="button primary contact-submit" type="submit"><span class="en">Send message</span><span class="fr">Envoyer le message</span></button>
+        <p class="form-status form-progress" id="contactProgress" role="status" hidden><span class="en">Continuing to the submission service…</span><span class="fr">Redirection vers le service d’envoi…</span></p>
+      </form>
+    </div>
+    <aside class="contact-panel contact-help" aria-labelledby="contactHelpTitle">
+      <span class="contact-label">CDYLC / CLJSC 2028</span>
+      <h2 id="contactHelpTitle"><span class="en">Reach the camp team</span><span class="fr">Joindre l’équipe du camp</span></h2>
+      <p><span class="en">Prefer email? You can write to us directly.</span><span class="fr">Tu préfères le courriel? Tu peux nous écrire directement.</span></p>
+      <a class="contact-email" href="mailto:dycjsc@gmail.com">dycjsc@gmail.com</a>
+      <div class="contact-help-divider"></div>
+      <h3><span class="en">Looking for camp information?</span><span class="fr">Tu cherches des informations?</span></h3>
+      <p><span class="en">Our FAQ covers age requirements, eligibility, accessibility and financial assistance.</span><span class="fr">Notre FAQ aborde l’âge requis, l’admissibilité, l’accessibilité et l’aide financière.</span></p>
+      <a class="contact-email" href="faq.html"><span class="en">Read the FAQ</span><span class="fr">Consulter la FAQ</span></a>
+    </aside>
+  </div></section>
+</main>
+  <footer><div class="wrap footer-grid">
+    <div><div class="footer-title">CDYLC • CLJSC 2028</div><p><span class="en">Canadian Deaf Youth Leadership Camp</span><span class="fr">Camp de leadership des jeunes sourds du Canada</span></p><a class="footer-email" href="mailto:dycjsc@gmail.com">dycjsc@gmail.com</a></div>
+    <div class="footer-links" aria-label="More information" data-label-en="More information" data-label-fr="Plus d’information">
+      <a href="faq.html"><span class="en">FAQ</span><span class="fr">FAQ</span></a>
+      <a href="about.html"><span class="en">About Us</span><span class="fr">À propos</span></a>
+      <a href="board.html"><span class="en">Meet the Board</span><span class="fr">Notre conseil</span></a>
+      <a href="committee.html"><span class="en">Camp Committee</span><span class="fr">Comité du camp</span></a>
+      <a href="contact.html"><span class="en">Contact Us</span><span class="fr">Nous joindre</span></a>
+      <a href="https://www.instagram.com/dyc_jsc/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#top"><span class="en">Back to top</span><span class="fr">Retour en haut</span></a>
+    </div>
+  </div>
+  <div class="wrap footer-legal" aria-label="Website policies" data-label-en="Website policies" data-label-fr="Politiques du site">
+    <a href="terms.html"><span class="en">Terms &amp; Conditions</span><span class="fr">Conditions d’utilisation</span></a>
+    <a href="privacy.html"><span class="en">Privacy Policy</span><span class="fr">Politique de confidentialité</span></a>
+  </div>
+  <p class="wrap footer-copyright">© 2026 Deaf Youth Canada / Jeunes Sourds du Canada. <span class="en">All rights reserved.</span><span class="fr">Tous droits réservés.</span></p>
+  </footer>
+</body>
+</html>
