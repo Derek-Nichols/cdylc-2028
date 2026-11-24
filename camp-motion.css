@@ -84,3 +84,74 @@
 .badge:hover .badge-patch.settled{animation:bob 1s ease-in-out infinite!important}
 .trail-steps li:hover .waypoint.settled{animation:bob 1s ease-in-out infinite!important}
 @media(prefers-reduced-motion:reduce){.js .reveal,.js .badge .badge-patch,.js .note-card,.js .waypoint,.js .legacy-badge{opacity:1!important}.js .trail-path{clip-path:none}.sky .shooting,.flies,.embers{display:none}}
+
+/* ===== Day / night sky ===== */
+@keyframes drift{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}
+@keyframes raysSpin{to{transform:rotate(360deg)}}
+@keyframes shimmer{to{background-position:120px 0}}
+@keyframes glide{0%{transform:translateX(-160px)}100%{transform:translateX(calc(100vw + 40px))}}
+@keyframes paddle{0%,100%{transform:rotate(0)}50%{transform:rotate(-18deg)}}
+@keyframes birds{0%{transform:translate(-10vw,0)}50%{transform:translate(50vw,-18px)}100%{transform:translate(110vw,6px)}}
+@keyframes plankSway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.2deg)}}
+@keyframes tick{0%{transform:translateY(-30%);opacity:.2}100%{transform:none;opacity:1}}
+.hero{--pines-day:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='190'%3E%3Cpath d='M27 92 L44 136 L35 136 L50 166 L39 166 L54 190 L0 190 L15 166 L4 166 L19 136 L10 136 Z' fill='%232E5E41'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='190'%3E%3Cpath d='M35 40 L58 100 L46 100 L64 140 L50 140 L70 190 L0 190 L20 140 L6 140 L24 100 L12 100 Z' fill='%234C8A60'/%3E%3C/svg%3E");padding-bottom:calc(190px + 46px + 2.5rem);transition:background-color .8s,color .8s}
+.hero:after{bottom:46px}
+.sky,.hero>.flies,.hero .glow,.moon{transition:opacity .9s}
+.daysky{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:0;transition:opacity .9s}
+.sun{position:absolute;top:70px;left:56%;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle,#FFE38A 0 55%,#FFC94A 56% 100%);box-shadow:0 0 60px 20px rgba(255,214,102,.55)}
+.sun i{position:absolute;inset:-38px;border-radius:50%;background:repeating-conic-gradient(rgba(255,214,102,.55) 0 6deg,transparent 6deg 30deg);-webkit-mask:radial-gradient(circle,transparent 52%,#000 53%);mask:radial-gradient(circle,transparent 52%,#000 53%);animation:raysSpin 40s linear infinite}
+.moon{position:absolute;top:64px;left:56%;width:70px;height:70px;border-radius:50%;box-shadow:inset -18px -6px 0 0 #FFF3D6;filter:drop-shadow(0 0 14px rgba(255,243,214,.5));transform:rotate(-20deg);pointer-events:none}
+.cloud{position:absolute;left:0;width:120px;height:38px;border-radius:40px;background:#fff;opacity:.92;animation:drift 70s linear infinite}
+.cloud:before,.cloud:after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cloud:before{width:56px;height:56px;left:18px;top:-26px}.cloud:after{width:42px;height:42px;left:62px;top:-18px}
+.cloud.c1{top:16%;animation-delay:-20s}.cloud.c2{top:34%;transform:scale(.7);animation-duration:95s;animation-delay:-60s}.cloud.c3{top:8%;animation-duration:120s;animation-delay:-90s}
+.birds{position:absolute;top:24%;left:0;width:80px;fill:none;stroke:#2C3B31;stroke-width:2.2;stroke-linecap:round;animation:birds 38s linear infinite}
+.lake{position:absolute;left:0;right:0;bottom:0;height:46px;z-index:1;overflow:hidden;background:repeating-linear-gradient(90deg,transparent 0 40px,rgba(255,243,214,.10) 40px 70px,transparent 70px 120px),linear-gradient(#10243A,#0B1A28);background-size:120px 3px,100% 100%;background-repeat:repeat-x,no-repeat;background-position:0 14px,0 0;animation:shimmer 6s linear infinite;transition:background-color .9s}
+.canoe{position:absolute;bottom:8px;left:0;width:110px;opacity:0;transition:opacity .9s;animation:glide 48s linear infinite}
+.canoe .paddle{transform-origin:84px 6px;animation:paddle 1.6s ease-in-out infinite}
+html.day .hero{background:linear-gradient(180deg,#7EC8EE 0%,#BFE6F7 48%,#FCE7BE 100%);color:#1F2A22}
+html.day .hero:after{background-image:var(--pines-day)}
+html.day .sky,html.day .hero>.flies,html.day .hero .glow,html.day .moon{opacity:0}
+html.day .daysky,html.day .canoe{opacity:1}
+html.day .lake{background:repeating-linear-gradient(90deg,transparent 0 40px,rgba(255,255,255,.45) 40px 70px,transparent 70px 120px),linear-gradient(#5DA9D6,#3E86B8);background-size:120px 3px,100% 100%;background-repeat:repeat-x,no-repeat;background-position:0 14px,0 0}
+html.day .hero h1{color:#1F3B2D}html.day .hero h1 span span{color:#B4461A}
+html.day .hero .hero-copy{color:#2C3B31}
+html.day .hero .pill{border-color:#B4461A;color:#8E3712}
+html.day .hero .button.secondary{border-color:#1F3B2D;color:#1F3B2D}html.day .hero .button.secondary:hover{background:rgba(31,59,45,.08)}
+html.day .hero :focus-visible{outline-color:#1F3B2D}
+/* Toggle */
+.sky-toggle{position:absolute;top:18px;right:20px;z-index:3;display:inline-flex;align-items:center;gap:.6rem;min-height:44px;padding:4px 14px 4px 4px;border-radius:999px;border:2px solid rgba(242,166,90,.6);background:rgba(11,23,17,.6);color:#F4ECD8;font:600 .85rem "Work Sans",sans-serif;cursor:pointer;transition:background .5s,border-color .5s,color .5s}
+.sky-toggle .knob{position:relative;width:34px;height:34px;border-radius:50%;background:#F4ECD8;display:grid;place-items:center;transition:transform .5s cubic-bezier(.4,1.4,.5,1),background .5s}
+.sky-toggle svg{position:absolute;width:20px;height:20px;fill:none;stroke:#12241B;stroke-width:2;stroke-linecap:round;transition:opacity .4s,transform .5s}
+.sky-toggle .i-moon{fill:#12241B;stroke:none}.sky-toggle .i-sun{opacity:0;transform:rotate(-90deg)}
+.sky-toggle .when-day,html.day .sky-toggle .when-night{display:none}html.day .sky-toggle .when-day{display:inline}
+html.day .sky-toggle{background:rgba(255,255,255,.75);border-color:#E8702A;color:#1F3B2D}
+html.day .sky-toggle .knob{background:#FFC94A;transform:rotate(180deg)}
+html.day .sky-toggle .i-sun{opacity:1;transform:rotate(180deg)}html.day .sky-toggle .i-moon{opacity:0}
+.sky-toggle:hover .knob{transform:scale(1.08)}html.day .sky-toggle:hover .knob{transform:rotate(180deg) scale(1.08)}
+@media(max-width:700px){.hero{padding-top:5.2rem}.sun,.moon{left:22px;top:14px;width:52px;height:52px}.moon{width:44px;height:44px;box-shadow:inset -12px -4px 0 0 #FFF3D6}.sun i{inset:-22px}.sky-toggle{top:14px;right:14px}}
+
+/* ===== Countdown plank ===== */
+.ropes{display:flex;justify-content:space-between;padding:0 4.5rem}
+.ropes span{display:block;width:4px;height:28px;border-radius:2px;background:repeating-linear-gradient(160deg,#D9B77E 0 4px,#A9844B 4px 8px)}
+.plank{position:relative;transform-origin:50% -28px;animation:plankSway 5s ease-in-out infinite;background:repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 2px,transparent 2px 9px),#A9713F;border:2px solid #6B4423;border-radius:8px;padding:.9rem 1rem;color:#FFF3D6;text-align:center;box-shadow:0 10px 22px rgba(0,0,0,.3)}
+.plank p{margin:0}
+.plank-state[data-state="waiting"]{display:flex;align-items:center;gap:.7rem;text-align:left;font-size:.92rem;line-height:1.4}
+.plank-state[data-state="waiting"] svg{flex-shrink:0;color:#FFE9C2}
+.plank-title{font-family:var(--hand);font-size:1.5rem;line-height:1;margin-bottom:.5rem!important}
+.clock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.45rem}
+.clock b{display:block;font-family:var(--slab);font-weight:400;font-size:1.65rem;line-height:1.2;padding:.25rem 0;border-radius:6px;background:#6B4423;color:#FFE9C2;box-shadow:inset 0 2px 4px rgba(0,0,0,.35)}
+.clock b.tick{animation:tick .35s ease-out}
+.clock small{display:block;margin-top:.25rem;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.plank-big{font-family:var(--slab);font-size:1.45rem;line-height:1.15;animation:bob 2s ease-in-out infinite}
+.plank-note{font-size:.9rem;margin-top:.35rem!important}
+.plank .button{margin-top:.7rem;min-height:44px;padding:.55rem 1.2rem}
+
+/* ===== Newsletter signup ===== */
+.signup{display:flex;gap:1.4rem;align-items:flex-start;text-align:left;max-width:780px;margin:2.6rem auto 0;padding:1.6rem 1.8rem;border:2px dashed rgba(242,166,90,.55);border-radius:18px;background:rgba(244,236,216,.07);scroll-margin-top:7rem}
+.signup-icon{flex-shrink:0;width:64px;height:64px;border-radius:50%;background:var(--yellow);color:#1F1408;display:grid;place-items:center}
+.signup h3{font-size:1.6rem;color:var(--cream)}
+.campfire .signup p{margin:.6rem 0 0;max-width:none;font-size:1rem}
+.signup-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.1rem}
+.campfire .signup .signup-help{font-size:.88rem;color:#CFC6AE}
+@media(max-width:600px){.signup{flex-direction:column;padding:1.3rem}}

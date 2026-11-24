@@ -1,0 +1,108 @@
+/* ===== Camp touches for inner pages ===== */
+.button.ghost{border:2px solid var(--forest);color:var(--forest);background:transparent;font:inherit;font-weight:700;cursor:pointer}
+.button.ghost:hover{background:rgba(31,59,45,.08)}
+
+/* ----- Packing checklist ----- */
+.pack-top{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;background:var(--paper);border:2px dashed #CDBB94;border-radius:18px;padding:1.4rem 1.6rem}
+.pack-progress{display:flex;gap:1.2rem;align-items:center;flex:1 1 420px;min-width:0}
+.pack-pack{flex-shrink:0;width:84px;height:84px;border-radius:50%;background:var(--forest);color:var(--cream);display:grid;place-items:center;box-shadow:0 0 0 5px var(--yellow)}
+.pack-meter{flex:1;min-width:0}
+.pack-meter p{margin:0}
+.pack-meter p:first-child{font-size:1.1rem}
+.pack-meter b{font-family:var(--slab);font-weight:400;font-size:1.6rem;color:var(--red)}
+.pack-track{height:16px;border-radius:999px;background:#E4D3AE;margin:.5rem 0;overflow:hidden;box-shadow:inset 0 2px 3px rgba(80,55,20,.2)}
+.pack-track span{display:block;height:100%;width:0;border-radius:inherit;background:repeating-linear-gradient(135deg,var(--yellow) 0 12px,#F2A65A 12px 24px);transition:width .6s cubic-bezier(.3,1.2,.5,1)}
+.pack-saved{font-size:.88rem;color:var(--muted)}
+.pack-buttons{display:flex;gap:.7rem;flex-wrap:wrap}
+.pack-ready{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:1.4rem 0 0;padding:1rem;border-radius:14px;background:var(--forest);color:var(--cream);font-family:var(--slab);font-size:1.35rem;text-align:center;animation:popIn .6s cubic-bezier(.3,1.5,.5,1)}
+.pack-ready svg{color:var(--ember);animation:bob 1.6s ease-in-out infinite}
+.pack-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.6rem;margin-top:2rem;align-items:start}
+.pack-group{margin:0;padding:1.3rem 1.4rem 1rem;border:0;border-radius:16px;background:var(--paper);box-shadow:0 8px 18px rgba(80,55,20,.12);position:relative;transition:box-shadow .3s}
+.pack-group:before{content:"";position:absolute;top:-10px;left:50%;margin-left:-40px;width:80px;height:20px;background:rgba(232,112,42,.5);transform:rotate(-2deg)}
+.pack-group:nth-child(even):before{background:rgba(31,59,45,.4);transform:rotate(2deg)}
+.pack-group.is-done{box-shadow:0 0 0 3px var(--forest),0 8px 18px rgba(80,55,20,.12)}
+.pack-group legend{float:left;width:100%;display:flex;align-items:center;gap:.7rem;padding:0;margin-bottom:.6rem;font-family:var(--slab);font-size:1.3rem;color:var(--forest)}
+.pack-group legend small{margin-left:auto;font-family:"Work Sans",sans-serif;font-size:.85rem;font-weight:700;color:var(--muted)}
+.pack-group.is-done legend small{color:var(--forest)}
+.pack-icon{width:42px;height:42px;border-radius:50%;background:#E4D3AE;color:var(--red);display:grid;place-items:center;flex-shrink:0}
+.pack-group ul{clear:both;list-style:none;margin:0;padding:0}
+.pack-group li{border-top:1px dashed #DCCBA6}
+.pack-group label{display:flex;gap:.8rem;align-items:flex-start;padding:.65rem .2rem;cursor:pointer;min-height:44px;line-height:1.45}
+.pack-group input{position:absolute;opacity:0;width:1px;height:1px}
+.tick{flex-shrink:0;width:26px;height:26px;border-radius:7px;border:2px solid var(--wood);background:#fff;display:grid;place-items:center;transition:background .2s,border-color .2s,transform .2s}
+.tick:after{content:"";width:7px;height:13px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) scale(0);margin-top:-3px;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.pack-group input:checked+.tick{background:var(--forest);border-color:var(--forest);transform:scale(1.08)}
+.pack-group input:checked+.tick:after{transform:rotate(45deg) scale(1)}
+.pack-group input:checked~.item-text{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--yellow);text-decoration-thickness:2px}
+.pack-group input:focus-visible+.tick{outline:3px solid var(--red);outline-offset:3px}
+.pack-group label:hover .tick{border-color:var(--yellow)}
+.pack-note{margin:2rem 0 0;font-size:.95rem;color:var(--muted);max-width:760px}
+.pack-note a{color:var(--blue);font-weight:600}
+
+/* ----- A day at camp ----- */
+.daytrail{position:relative;padding:0;background:linear-gradient(180deg,#FBE3C4 0%,#CDEBF7 18%,#BFE6F7 38%,#F9E3B5 58%,#F3B07C 70%,#7A5A8C 80%,#24304F 88%,#12241B 100%)}
+.daytrail .wrap{position:relative;padding:clamp(3rem,6vw,5rem) 0}
+.daytrail .daynote{max-width:720px;margin:0 auto 2.5rem;text-align:center;background:rgba(255,251,241,.85);border:2px dashed #CDBB94;border-radius:14px;padding:.9rem 1.2rem;font-size:.95rem;color:var(--ink)}
+.dayline{position:relative;list-style:none;margin:0 auto;padding:0;max-width:860px}
+.dayline:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;background:repeating-linear-gradient(180deg,rgba(107,68,35,.55) 0 10px,transparent 10px 20px);border-radius:2px}
+.stop{position:relative;display:grid;grid-template-columns:1fr 72px 1fr;align-items:center;gap:1.2rem;margin-bottom:2.2rem}
+.stop-time{justify-self:end;margin:0;font-family:var(--hand);font-size:1.5rem;line-height:1.1;color:var(--wood-dark);text-align:right;background:rgba(255,251,241,.9);border-radius:10px;padding:.35rem .8rem;box-shadow:0 4px 10px rgba(60,40,15,.12)}
+.stop-time small{display:block;font-family:"Work Sans",sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stop-dot{width:72px;height:72px;border-radius:50%;background:var(--cream);border:4px solid var(--yellow);display:grid;place-items:center;color:var(--red);box-shadow:0 6px 14px rgba(0,0,0,.15);position:relative;z-index:1}
+.stop-card{background:var(--paper);border-radius:14px;padding:1.1rem 1.3rem;box-shadow:0 8px 18px rgba(60,40,15,.15)}
+.stop-card h2{font-size:1.35rem;color:var(--forest)}
+.stop-card p{margin:.4rem 0 0;color:#4A4436;font-size:.98rem}
+.stop:nth-child(even) .stop-time{order:3;text-align:left;justify-self:start}
+.stop:nth-child(even) .stop-card{order:1}
+.stop:nth-child(even) .stop-dot{order:2}
+.stop.evening .stop-dot{background:#24304F;color:#FFE9C2;border-color:var(--ember)}
+.stop.fire .stop-dot{background:var(--red);color:#FFF3D6;border-color:var(--ember);box-shadow:0 0 0 0 rgba(232,112,42,.6);animation:firePulse 2s ease-in-out infinite}
+.stop.night .stop-dot{background:#0B1711;color:#FFF3D6;border-color:#F4ECD8}
+.stop-dot svg{transition:transform .4s}
+.stop:hover .stop-dot svg{transform:scale(1.2) rotate(-8deg)}
+@keyframes firePulse{0%,100%{box-shadow:0 0 0 0 rgba(232,112,42,.55)}50%{box-shadow:0 0 0 14px rgba(232,112,42,0)}}
+.dayend{text-align:center;color:var(--cream);padding-top:1rem}
+.dayend h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.dayend p{color:#E3DAC4;max-width:620px;margin:.8rem auto 0}
+.dayend .hero-actions{justify-content:center}
+@media(max-width:700px){
+  .dayline:before{left:36px}
+  .stop,.stop:nth-child(even){grid-template-columns:72px 1fr;gap:.9rem}
+  .stop .stop-dot,.stop:nth-child(even) .stop-dot{order:1;grid-row:span 2}
+  .stop .stop-time,.stop:nth-child(even) .stop-time{order:2;text-align:left;justify-self:start}
+  .stop .stop-card,.stop:nth-child(even) .stop-card{order:3;grid-column:2}
+}
+
+/* ----- FAQ: trail-marker cards ----- */
+.faq-item{border:2px solid #E4D3AE;position:relative;transition:transform .25s,box-shadow .25s}
+.faq-item:hover{transform:translateX(4px)}
+.faq-item summary{padding-left:3.6rem;position:relative}
+.faq-item summary:before{content:"";position:absolute;left:1.35rem;top:50%;width:14px;height:24px;margin-top:-12px;border-radius:3px;background:var(--yellow);box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--wood);transition:transform .35s cubic-bezier(.3,1.5,.5,1),background .3s}
+.faq-item:nth-child(3n+2) summary:before{background:var(--red)}
+.faq-item:nth-child(3n) summary:before{background:var(--forest)}
+.faq-item[open]{border-color:var(--wood);box-shadow:0 10px 22px rgba(80,55,20,.15)}
+.faq-item[open] summary:before{transform:rotate(-12deg) scale(1.1)}
+.faq-item summary::after{background:#E4D3AE;color:var(--wood-dark);font-family:var(--slab);transition:transform .3s}
+.faq-item[open] summary::after{transform:rotate(180deg);background:var(--forest);color:var(--cream)}
+.faq-answer{padding-left:3.6rem}
+.faq-topic{color:var(--red);letter-spacing:.06em;text-transform:uppercase;font-size:.78rem}
+.contact-panel{background:var(--forest);border:0;color:var(--cream);background-image:radial-gradient(circle at 85% 10%,rgba(232,112,42,.3),transparent 50%)}
+.contact-panel h2{color:var(--cream)}
+.contact-panel p{color:#E3DAC4}
+.contact-panel .contact-label{color:var(--ember)}
+.contact-panel .contact-email{color:var(--ember)}
+@media(max-width:540px){.faq-item summary{padding-left:3.2rem}.faq-item summary:before{left:1.1rem}.faq-answer{padding-left:1.15rem}}
+
+/* ----- Board: camp ID badges ----- */
+.board-grid{row-gap:4rem;padding-top:2.5rem}
+.board-card{overflow:visible;position:relative;border:0;border-radius:16px;background:var(--paper);box-shadow:0 12px 26px rgba(60,40,15,.18);padding:2.6rem .9rem 0;transform-origin:50% -60px;transition:transform .4s cubic-bezier(.3,1.4,.5,1)}
+.board-card:before{content:"";position:absolute;left:50%;top:-58px;width:22px;height:70px;margin-left:-11px;background:linear-gradient(90deg,#A50E26,var(--red) 40%,#A50E26);border-radius:3px;z-index:0}
+.board-card:after{content:"CDYLC • CLJSC 2028";position:absolute;left:0;right:0;top:0;height:2.1rem;border-radius:16px 16px 0 0;background:var(--forest);color:var(--ember);font:700 .72rem/2.1rem "Work Sans",sans-serif;letter-spacing:.14em;text-align:center}
+.board-card img{border-radius:10px;margin-top:.6rem;position:relative;z-index:1}
+.board-card figcaption{position:relative;text-align:center;padding:1rem .6rem 1.3rem}
+.board-card h2{font-size:1.35rem;color:var(--forest)}
+.board-card p{display:inline-block;margin-top:.5rem;padding:.2rem .8rem;border-radius:999px;background:var(--yellow);color:#1F1408;font-weight:700;font-size:.88rem}
+.board-card:hover{transform:rotate(-2.5deg)}
+.board-card:nth-child(even):hover{transform:rotate(2.5deg)}
+
+@media print{.pack-top .pack-buttons,.pack-note a{display:none}.pack-group{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.pack-group:before{display:none}.daytrail{background:none}}
