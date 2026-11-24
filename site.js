@@ -44,4 +44,35 @@
     const wide = window.matchMedia("(min-width:1121px)");
     if (wide.addEventListener) wide.addEventListener("change", () => setMenu(false));
   }
+  // Camp animations: reveal on scroll, settle after entrance, count-up
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const targets = document.querySelectorAll(".reveal, .badge, .notes, .trail-map, .legacy");
+  const entrance = ["riseIn", "stamp", "pinDrop", "popIn", "swingIn"];
+  document.addEventListener("animationend", event => {
+    if (entrance.includes(event.animationName)) event.target.classList.add("settled");
+  });
+  function countUp(el) {
+    const end = parseInt(el.dataset.count, 10);
+    if (!end || reduce) return;
+    const start = performance.now(), dur = 1400;
+    (function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+  function show(el) {
+    el.classList.add("in");
+    el.querySelectorAll("[data-count]").forEach(countUp);
+  }
+  if (reduce || !("IntersectionObserver" in window)) {
+    targets.forEach(el => el.classList.add("in"));
+  } else {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { show(entry.target); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
+    targets.forEach(el => io.observe(el));
+  }
 })();

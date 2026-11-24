@@ -1,0 +1,86 @@
+/* ===== Camp animations ===== */
+@keyframes twinkle{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes shoot{0%{transform:translate(0,0) rotate(-18deg);opacity:0}4%{opacity:1}14%{transform:translate(-55vw,18vw) rotate(-18deg);opacity:0}100%{transform:translate(-55vw,18vw) rotate(-18deg);opacity:0}}
+@keyframes firefly{0%{transform:translate(0,0);opacity:0}15%{opacity:1}35%{transform:translate(28px,-22px)}55%{transform:translate(-12px,-46px);opacity:.3}75%{transform:translate(22px,-64px);opacity:1}100%{transform:translate(-8px,-90px);opacity:0}}
+@keyframes glowPulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes flicker{0%,100%{transform:scale(1,1) skewX(0)}20%{transform:scale(.96,1.06) skewX(2deg)}40%{transform:scale(1.03,.95) skewX(-2deg)}60%{transform:scale(.98,1.08) skewX(1deg)}80%{transform:scale(1.02,.97) skewX(-1deg)}}
+@keyframes ember{0%{transform:translate(0,0) scale(1);opacity:0}10%{opacity:1}100%{transform:translate(var(--dx,10px),-220px) scale(.3);opacity:0}}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes swingIn{0%{transform:rotate(-9deg)}25%{transform:rotate(6deg)}45%{transform:rotate(-3.5deg)}65%{transform:rotate(2deg)}82%{transform:rotate(-1deg)}100%{transform:rotate(0)}}
+@keyframes riseIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes stamp{0%{opacity:0;transform:scale(1.6) rotate(-25deg)}60%{opacity:1;transform:scale(.92) rotate(4deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes pinDrop{0%{opacity:0;transform:translateY(-60px) rotate(var(--r,0deg))}70%{opacity:1;transform:translateY(6px) rotate(var(--r,0deg))}100%{opacity:1;transform:translateY(0) rotate(var(--r,0deg))}}
+@keyframes popIn{0%{opacity:0;transform:scale(.3)}70%{opacity:1;transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}
+@keyframes drawTrail{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes swingHover{0%{transform:rotate(0)}20%{transform:rotate(-5deg)}45%{transform:rotate(3deg)}70%{transform:rotate(-1.5deg)}100%{transform:rotate(0)}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+
+/* Night sky */
+.sky{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.sky i{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFF3D6;box-shadow:0 0 6px 1px rgba(255,243,214,.8);animation:twinkle var(--t,3s) ease-in-out var(--d,0s) infinite}
+.sky .shooting{position:absolute;top:8%;right:-10%;width:140px;height:2px;border-radius:2px;background:linear-gradient(90deg,#FFF3D6,rgba(255,243,214,0));opacity:0;animation:shoot 9s ease-out 2s infinite}
+.sky .shooting.two{top:22%;right:-20%;animation-delay:6.5s;animation-duration:13s;width:100px}
+.flies{position:absolute;inset:auto 0 0 0;height:320px;pointer-events:none;z-index:1}
+.flies i{position:absolute;bottom:var(--b,40px);left:var(--l,50%);width:5px;height:5px;border-radius:50%;background:#FFE9A8;box-shadow:0 0 10px 3px rgba(255,214,110,.75);opacity:0;animation:firefly var(--t,7s) ease-in-out var(--d,0s) infinite}
+.hero .glow{position:absolute;right:6%;bottom:40px;width:520px;height:360px;border-radius:50%;background:radial-gradient(closest-side,rgba(232,112,42,.35),transparent);animation:glowPulse 3.2s ease-in-out infinite;pointer-events:none}
+.hero:after{z-index:1}.hero-grid{z-index:2}
+
+/* Hero entrance */
+.hero .pill,.hero h1,.hero .hero-copy,.hero .hero-actions{animation:riseIn .9s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.12s}.hero .hero-copy{animation-delay:.28s}.hero .hero-actions{animation-delay:.42s}
+.sign{animation:riseIn .8s .3s both}
+.sign-board{transform-origin:50% -30px;animation:swingIn 2.4s .5s ease-out both}
+.sign:hover .sign-board.settled{animation:swingHover 1.6s ease-out!important}
+.pill svg{animation:wiggle 1.6s ease-in-out infinite;transform-origin:50% 90%}
+
+/* Pennants */
+.pennants li{transform-origin:50% 0;animation:sway var(--t,3.6s) ease-in-out var(--d,0s) infinite}
+.pennants li:nth-child(1){--d:-.4s}.pennants li:nth-child(2){--d:-1.3s;--t:4.1s}.pennants li:nth-child(3){--d:-2.2s}.pennants li:nth-child(4){--d:-.9s;--t:3.9s}.pennants li:nth-child(5){--d:-1.8s;--t:4.3s}
+
+/* Buttons */
+.button.primary{position:relative;overflow:hidden}
+.button.primary:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.button.primary:hover:after{transform:translateX(120%)}
+
+/* Scroll reveals (only when JS is on) */
+.js .reveal{opacity:0}
+.js .reveal.in{animation:riseIn .9s cubic-bezier(.2,.7,.2,1) var(--delay,0s) both}
+.js .badge .badge-patch{opacity:0}
+.js .badge.in .badge-patch{animation:stamp .8s cubic-bezier(.3,1.4,.5,1) var(--delay,0s) both}
+.badge-patch>span{animation:spin 30s linear infinite}
+.badge-patch>span svg{animation:spin 30s linear infinite reverse}
+.badge:hover .badge-patch.settled{animation:bob 1s ease-in-out infinite!important}
+.js .note-card{opacity:0}
+.js .notes.in .note-card{animation:pinDrop .8s cubic-bezier(.3,1.3,.5,1) both}
+.note-card:nth-child(1){--r:-1.5deg}.note-card:nth-child(2){--r:1.2deg;animation-delay:.15s!important}.note-card:nth-child(3){--r:-.8deg;animation-delay:.3s!important}.note-card:nth-child(4){--r:1.6deg;animation-delay:.45s!important}
+.note-card{transition:transform .3s,box-shadow .3s}
+.note-card.settled:hover{transform:translateY(-8px) rotate(0) scale(1.03);box-shadow:0 18px 30px rgba(80,55,20,.25)}
+.note-card:hover svg{animation:wiggle .6s ease-in-out}
+.js .trail-path{clip-path:inset(0 100% 0 0)}
+.js .trail-map.in .trail-path{animation:drawTrail 2.2s ease-in-out .2s forwards}
+.js .waypoint{opacity:0}
+.js .trail-map.in .waypoint{animation:popIn .6s cubic-bezier(.3,1.5,.5,1) both}
+.trail-steps li:nth-child(2) .waypoint{animation-delay:.5s!important}.trail-steps li:nth-child(3) .waypoint{animation-delay:1s!important}.trail-steps li:nth-child(4) .waypoint{animation-delay:1.5s!important}
+.trail-steps li:hover .waypoint.settled{animation:bob 1s ease-in-out infinite!important}
+.trail .flies{height:100%}
+.js .legacy-badge{opacity:0}
+.js .legacy.in .legacy-badge{animation:stamp 1s cubic-bezier(.3,1.4,.5,1) both}
+
+.settled{animation:none!important;opacity:1!important}
+.sign-board.settled,.badge-patch.settled{animation:none!important}
+/* Campfire */
+.fire-wrap{position:relative;width:210px;height:197px;margin:0 auto}
+.fire-wrap .glow{position:absolute;left:50%;top:55%;width:340px;height:240px;margin:-120px 0 0 -170px;border-radius:50%;background:radial-gradient(closest-side,rgba(232,112,42,.5),transparent);animation:glowPulse 2.4s ease-in-out infinite}
+.fire-wrap svg{position:relative;display:block;margin:0 auto}
+.fire-wrap .flame-out{transform-origin:60px 86px;animation:flicker 1.1s ease-in-out infinite}
+.fire-wrap .flame-in{transform-origin:60px 84px;animation:flicker .8s ease-in-out -.3s infinite}
+.embers{position:absolute;left:50%;bottom:80px;width:0;height:0}
+.embers i{position:absolute;left:var(--x,0);bottom:0;width:4px;height:4px;border-radius:50%;background:#FFB45C;box-shadow:0 0 8px 2px rgba(255,140,40,.8);opacity:0;animation:ember var(--t,3s) ease-out var(--d,0s) infinite}
+.campfire .wrap{position:relative}
+
+.sign:hover .sign-board.settled{animation:swingHover 1.6s ease-out!important}
+.badge:hover .badge-patch.settled{animation:bob 1s ease-in-out infinite!important}
+.trail-steps li:hover .waypoint.settled{animation:bob 1s ease-in-out infinite!important}
+@media(prefers-reduced-motion:reduce){.js .reveal,.js .badge .badge-patch,.js .note-card,.js .waypoint,.js .legacy-badge{opacity:1!important}.js .trail-path{clip-path:none}.sky .shooting,.flies,.embers{display:none}}
